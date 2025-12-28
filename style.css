@@ -1,0 +1,762 @@
+/* Reset and base styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+header {
+  background: #004080; /* deep blue school color */
+  color: white;
+  padding: 1em;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1em;
+  margin-top: 0.5em;
+}
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.6em 1.2em;
+  background: #004080;          /* deep blue */
+  color: white;
+  border-radius: 50px;          /* pill shape */
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: #0066cc;          /* lighter blue on hover */
+  transform: translateY(-2px);  /* slight lift effect */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+nav a.active {
+  background: #ffcc00;          /* highlight active page */
+  color: #004080;
+}
+
+nav a i {
+  font-size: 1em;
+}
+
+/* Hero section (Home Page) */
+.hero {
+  background: #e6f0ff; /* light blue background */
+  padding: 2em;
+  text-align: center;
+}
+
+.hero h2 {
+  margin-top: 0;
+  color: #004080;
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Highlights section (Home Page) */
+.highlights {
+  padding: 2em;
+  background: white;
+}
+
+.highlights h3 {
+  color: #004080;
+  margin-bottom: 0.3em;
+}
+
+.highlights p {
+  margin-bottom: 1.5em;
+}
+
+/* About Page */
+.about {
+  padding: 2em;
+  background: #ffffff;
+}
+
+.about h2 {
+  color: #004080;
+  margin-bottom: 0.5em;
+}
+
+.about h3 {
+  color: #0066cc;
+  margin-top: 1.5em;
+}
+
+.about ul {
+  list-style: square;
+  padding-left: 1.5em;
+}
+
+/* Contact Page */
+.contact {
+  padding: 2em;
+  background: #f4f8ff; /* light blue background */
+}
+
+.contact h2 {
+  color: #004080;
+  margin-bottom: 0.5em;
+}
+
+.contact h3 {
+  color: #0066cc;
+  margin-top: 1.2em;
+}
+
+.contact form {
+  margin-top: 1em;
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact button {
+  background: #004080;
+  color: white;
+  padding: 0.7em 1.5em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact button:hover {
+  background: #0066cc;
+}
+
+/* Gallery Page */
+.gallery {
+  padding: 2em;
+  background: #ffffff;
+}
+
+.gallery h2 {
+  color: #004080;
+  margin-bottom: 0.5em;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+footer {
+  background: #004080;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5em;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 1.5em;
+  }
+
+  .hero h2 {
+    font-size: 1.5em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  .about,
+  .contact {
+    padding: 1em;
+  }
+
+  .about h2,
+  .contact h2 {
+    font-size: 1.4em;
+  }
+
+  .about h3,
+  .contact h3 {
+    font-size: 1.2em;
+  }
+
+  .contact input,
+  .contact textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact button {
+    width: 100%;
+    padding: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 1.2em;
+  }
+
+  .hero p {
+    font-size: 0.9em;
+  }
+
+  footer {
+    font-size: 0.8em;
+    padding: 0.5em;
+  }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode header,
+body.dark-mode nav,
+body.dark-mode footer {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode a {
+  color: #bb86fc;
+}
+
+/* Section overrides for dark mode */
+body.dark-mode .hero,
+body.dark-mode .highlights,
+body.dark-mode .about,
+body.dark-mode .contact,
+body.dark-mode .gallery {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode .hero h2,
+body.dark-mode .highlights h3,
+body.dark-mode .about h2,
+body.dark-mode .about h3,
+body.dark-mode .contact h2,
+body.dark-mode .contact h3,
+body.dark-mode .gallery h2 {
+  color: #bb86fc;
+}
+
+body.dark-mode .hero p,
+body.dark-mode .highlights p,
+body.dark-mode .about ul,
+body.dark-mode .contact input,
+body.dark-mode .contact textarea {
+  color: #f0f0f0;
+  background-color: #2a2a2a;
+  border-color: #555;
+}
+
+/* Toggle styles */
+.toggle-container {
+  display: inline-block;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  z-index: 1000;
+}
+
+.toggle-container input {
+  display: none;
+}
+
+.toggle-switch {
+  width: 50px;
+  height: 25px;
+  background: #ccc;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: inline-block;
+}
+
+.toggle-switch::after {
+  content: "";
+  width: 21px;
+  height: 21px;
+  background: #fff;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+
+.toggle-container input:checked + .toggle-switch {
+  background: #4caf50;
+}
+
+.toggle-container input:checked + .toggle-switch::after {
+  transform: translateX(25px);
+}
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  padding: 3em;
+  background: linear-gradient(135deg, #004080, #0066cc);
+  color: white;
+  justify-content: center;
+}
+
+.contact-info {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.contact-info h2 {
+  margin-bottom: 0.5em;
+}
+
+.contact-info p {
+  margin: 0.5em 0;
+  font-size: 1.1em;
+}
+
+.social-icons {
+  margin-top: 1em;
+}
+
+.social-icons a {
+  margin-right: 0.5em;
+  font-size: 1.5em;
+  color: white;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffcc00;
+}
+
+.contact-form {
+  flex: 1 1 300px;
+  background: #ffffff;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: #333;
+}
+
+.contact-form h3 {
+  margin-bottom: 1em;
+  color: #004080;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.contact-form button {
+  background: #004080;
+  color: white;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #0066cc;
+}
+
+/* Dark mode overrides */
+body.dark-mode .contact {
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+  color: #f0f0f0;
+}
+
+body.dark-mode .contact-form {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background: #2a2a2a;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+body.dark-mode .contact-form button {
+  background: #4caf50;
+}
+
+body.dark-mode .contact-form button:hover {
+  background: #66bb6a;
+}
+/* Hero Section with Transparent Background Image */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('school-background.png'); /* replace with your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Transparent overlay across the whole hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* dark transparent overlay */
+  z-index: 0;
+}
+
+/* Content box on top of overlay */
+.hero-overlay {
+  position: relative;
+  text-align: center;
+  padding: 40px;
+  border-radius: 12px;
+  color: #fff;
+  z-index: 1;
+}
+
+/* Title styling */
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Subtitle styling */
+.hero-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Button styling */
+.hero-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ffcc00;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #e6b800;
+}
+.hero::before {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2));
+}
+.hero-button:hover {
+  background-color: #e6b800;
+  transform: scale(1.05);
+}
+/* Default hero styles */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* transparent overlay */
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: relative;
+  text-align: center;
+  padding: 40px;
+  border-radius: 12px;
+  color: #fff;
+  z-index: 1;
+}
+
+/* Different backgrounds per page */
+body.home .hero {
+  background-image: url('school-background.png');
+}
+
+body.about .hero {
+  background-image: url('about-bg.png');
+}
+
+body.contact .hero {
+  background-image: url('contact-bg.png');
+}
+
+body.events .hero {
+  background-image: url('events-bg.png');
+}
+
+body.gallery .hero {
+  background-image: url('assets/gallery-bg.png');
+}
+/* History page headings */
+body.history h2 {
+  font-family: 'Georgia', serif;       /* elegant font */
+  font-size: 2rem;                     /* bigger size */
+  color: #2c3e50;                      /* deep blue-gray */
+  text-transform: uppercase;           /* all caps */
+  letter-spacing: 2px;                 /* spacing between letters */
+  margin-bottom: 15px;
+  border-left: 5px solid #e6b800;      /* golden accent line */
+  padding-left: 10px;
+}
+
+/* Optional: add a subtle underline effect */
+body.history h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #e6b800;
+  margin-top: 5px;
+}
+.hero-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  background: linear-gradient(135deg, #66BB6A, #388E3C);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+.hero-button i {
+  margin-left: 8px;
+  transition: margin-left 0.3s ease;
+}
+
+.hero-button:hover i {
+  margin-left: 16px;
+}
+body.dark-mode .hero-button {
+  background: #222;
+  color: #fff;
+  border: 2px solid #4CAF50;
+  box-shadow: 0 0 10px #4CAF50;
+}
+.hero-button {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.exam-timetable {
+  margin: 40px auto;
+  max-width: 900px;
+  text-align: center;
+}
+
+.exam-timetable table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.exam-timetable th, .exam-timetable td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.exam-timetable th {
+  background: #333;
+  color: #fff;
+}
+
+.exam-timetable tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.btn-download {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #0066cc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.btn-download:hover {
+  background: #004c99;
+}
+/* Exam Timetable Section */
+.exam-timetable {
+  margin: 40px auto;
+  max-width: 1000px;
+  padding: 20px;
+  background: #fdfdfd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.exam-timetable h2 {
+  text-align: center;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* PDF iframe styling */
+.exam-timetable iframe {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+/* Table styling */
+.exam-timetable table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+}
+
+.exam-timetable th, 
+.exam-timetable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.exam-timetable th {
+  background: #0066cc;
+  color: #fff;
+  font-weight: bold;
+}
+
+.exam-timetable tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.exam-timetable tr:hover {
+  background: #eef;
+  transition: 0.3s;
+}
+
+/* Download button */
+.btn-download {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #0066cc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.btn-download:hover {
+  background: #004c99;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .exam-timetable table, 
+  .exam-timetable th, 
+  .exam-timetable td {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  .exam-timetable iframe {
+    height: 400px;
+  }
+}
