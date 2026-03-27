@@ -1,0 +1,1108 @@
+/* Reset and base styles */
+body {
+  margin: 0;
+  font-family: Georgia, serif; /* serif for a more prestigious feel, Oxford-like */
+  line-height: 1.6;
+  /* use full-page photograph as the base background */
+  background: url("school compound.jpg") center/cover fixed;
+  color: white; /* default text light for visibility against image */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* new logo rule */
+#school-logo {
+  height: 80px;
+  margin-right: 1em;
+  vertical-align: middle;
+}
+
+/* Oxford-like navy header */
+header {
+  background: #002147; /* Oxford navy */
+  color: white;
+  padding: 1em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header h1 {
+  margin: 0;
+  display: inline-block;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+nav a {
+  background: #002147;          /* deep navy to match header */
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: #0b3b66;          /* lighter navy on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+/* Header */
+header {
+  background: #004080; /* deep blue school color */
+  color: white;
+  padding: 1.5em 2em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Ensure nav and footer also transition when theme changes */
+nav, footer {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1em;
+  margin-top: 0.5em;
+}
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.6em 1.2em;
+  background: #004080;          /* deep blue */
+  color: white;
+  border-radius: 50px;          /* pill shape */
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  background: #0066cc;          /* lighter blue on hover */
+  transform: translateY(-2px);  /* slight lift effect */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+nav a.active {
+  background: #ffcc00;          /* highlight active page */
+  color: #004080;
+}
+
+nav a i {
+  font-size: 1em;
+}
+
+/* Hero section (Home Page) */
+.hero {
+  /* full-screen hero with centered content; image remains visible behind text */
+  position: relative;
+  background: url("school compound.jpg") center/cover no-repeat fixed;
+  min-height: 100vh;              /* extend to full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* gradient overlay to dim edges slightly without hiding the picture */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
+  z-index: 0;
+}
+
+/* ensure text sits above overlay */
+.hero h2,
+.hero p {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+/* make hero title larger for emphasis */
+.hero h2 {
+  font-size: 3em; /* adjust as needed */
+}
+
+.hero h2 {
+  margin-top: 0;
+  color: white;
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: white;
+}
+
+/* Highlights section (Home Page) */
+.highlights {
+  padding: 2em;
+  background: rgba(255,255,255,0.2); /* semi-transparent so photo shows through */
+}
+
+/* common container style for main page sections */
+.page-container {
+  padding: 3em 2em;
+  background: rgba(255,255,255,0.85);
+  max-width: 900px;
+  margin: 2em auto;
+  border-radius: 8px;
+  color: #000;
+}
+
+/* slide cards within history already covered earlier, but ensure consistent look */
+.history-slides .slide {
+  background: rgba(255,255,255,0.95);
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+  color: #000;
+}
+
+/* History page styling improvements */
+.history {
+  padding: 3em 2em;
+  background: rgba(255,255,255,0.85);
+  max-width: 900px;
+  margin: 2em auto;
+  border-radius: 8px;
+  color: #000;                     /* dark text within the history container */
+}
+
+.history-slides .slide {
+  background: rgba(255,255,255,0.95);
+  max-width: 800px;
+  margin: 0 auto 1rem auto;
+  color: #000;                     /* ensure slide text remains dark */
+}
+
+/* give slide headings a subtle white text-shadow so they also show on darker backgrounds */
+.history-slides .slide h1,
+.history-slides .slide h3,
+.history-slides .slide p,
+.history-slides .slide blockquote {
+  text-shadow: 0 0 6px rgba(255,255,255,0.6);
+}
+
+.highlights h3 {
+  color: #004080;
+  margin-bottom: 0.3em;
+}
+
+.highlights p {
+  margin-bottom: 1.5em;
+}
+
+/* About Page */
+.about {
+  /* reuse .page-container styling */
+}
+
+.about h2 {
+  color: #004080;
+  margin-bottom: 0.5em;
+}
+
+.about h3 {
+  color: #0066cc;
+  margin-top: 1.5em;
+}
+
+.about ul {
+  list-style: square;
+  padding-left: 1.5em;
+}
+
+/* Contact page basic styles are defined later in the file when the layout was upgraded to a flex-based gradient section. */
+/* see the bottom of this stylesheet for the full .contact, .contact-info, and .contact-form rules */
+/* Gallery Page */
+.gallery {
+  /* reuse .page-container styling */
+}
+
+.gallery h2 {
+  color: #004080;
+  margin-bottom: 0.5em;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: block;
+}
+
+.gallery-item {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.13);
+}
+
+.gallery-item figcaption {
+  margin: 0;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.95rem;
+  color: #264a6f;
+  background: #f8faff;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+/* History slides styling */
+.history-slides {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1rem 0;
+}
+
+.history-slides .slide {
+  background: #ffffff;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* Slideshow behavior */
+.history-slides {
+  position: relative;
+}
+
+/* Allow vertical page scrolling while enabling horizontal swipe detection on slides */
+.history-slides {
+  touch-action: pan-y;
+}
+
+/* Show slides as normal stacked content (slideshow disabled) */
+.history-slides .slide {
+  display: block;
+  opacity: 1;
+  transform: none;
+  transition: none;
+  margin-bottom: 1rem;
+}
+
+.history-slides .slide.current {
+  display: block;
+  opacity: 1;
+  transform: none;
+}
+
+/* Directional slide transitions */
+.history-slides .slide.enter-from-right {
+  display: block;
+  opacity: 0;
+  transform: translateX(18px);
+}
+
+.history-slides .slide.enter-from-right.active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 360ms ease, transform 360ms cubic-bezier(.22,.9,.35,1);
+}
+
+.history-slides .slide.enter-from-left {
+  display: block;
+  opacity: 0;
+  transform: translateX(-18px);
+}
+
+.history-slides .slide.enter-from-left.active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 360ms ease, transform 360ms cubic-bezier(.22,.9,.35,1);
+}
+
+.history-slides .slide.exit-to-left {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.history-slides .slide.exit-to-left.active {
+  opacity: 0;
+  transform: translateX(-18px);
+  transition: opacity 280ms ease, transform 280ms ease;
+}
+
+.history-slides .slide.exit-to-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.history-slides .slide.exit-to-right.active {
+  opacity: 0;
+  transform: translateX(18px);
+  transition: opacity 280ms ease, transform 280ms ease;
+}
+
+.slide-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+
+.slide-controls button {
+  background: #004080;
+  color: white;
+  border: none;
+  padding: 0.45rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.slide-controls button:hover { background: #0066cc; }
+
+#slide-counter {
+  min-width: 6rem;
+  text-align: center;
+  color: #004080;
+  font-weight: bold;
+}
+
+.history-slides .slide h1 {
+  margin: 0.25rem 0 0.5rem 0;
+  color: #004080;
+}
+
+.history-slides .slide h3 {
+  margin: 0 0 0.5rem 0;
+  color: #0066cc;
+}
+
+.history-slides .lead {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.history-slides blockquote {
+  margin: 0.75rem 0 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid #004080;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .history-slides .slide { padding: 0.85rem; }
+}
+
+/* Footer */
+footer {
+  background: #004080;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5em;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 1.5em;
+  }
+
+  .hero h2 {
+    font-size: 1.5em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  .about,
+  .contact {
+    padding: 1em;
+  }
+
+  .about h2,
+  .contact h2 {
+    font-size: 1.4em;
+  }
+
+  .about h3,
+  .contact h3 {
+    font-size: 1.2em;
+  }
+
+  .contact input,
+  .contact textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .contact button {
+    width: 100%;
+    padding: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .hero h2 {
+    font-size: 1.2em;
+  }
+
+  .hero p {
+    font-size: 0.9em;
+  }
+
+  footer {
+    font-size: 0.8em;
+    padding: 0.5em;
+  }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode header,
+body.dark-mode nav,
+body.dark-mode footer {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode a {
+  color: #bb86fc;
+}
+
+/* Section overrides for dark mode */
+body.dark-mode .hero,
+body.dark-mode .highlights,
+body.dark-mode .about,
+body.dark-mode .contact,
+body.dark-mode .gallery,
+body.dark-mode .page-container,
+body.dark-mode .history,
+body.dark-mode .history-slides .slide {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode .hero h2,
+body.dark-mode .highlights h3,
+body.dark-mode .about h2,
+body.dark-mode .about h3,
+body.dark-mode .contact h2,
+body.dark-mode .contact h3,
+body.dark-mode .gallery h2 {
+  color: #bb86fc;
+}
+
+body.dark-mode .hero p,
+body.dark-mode .highlights p,
+body.dark-mode .about ul,
+body.dark-mode .contact input,
+body.dark-mode .contact textarea,
+body.dark-mode .page-container,
+body.dark-mode .history-slides .slide {
+  color: #f0f0f0;
+  background-color: #2a2a2a;
+  border-color: #555;
+}
+
+/* Ensure slide cards and controls are readable in dark mode */
+body.dark-mode .history-slides .slide {
+  background-color: #161616;
+  color: #e9eef8;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+body.dark-mode .history-slides .slide h1,
+body.dark-mode .history-slides .slide h3,
+body.dark-mode .history-slides .slide p,
+body.dark-mode .history-slides .slide li,
+body.dark-mode .history-slides .slide blockquote {
+  color: #e9eef8;
+}
+
+body.dark-mode .history-slides .slide blockquote {
+  border-left-color: #2a6fb0;
+  color: #dfe9fb;
+}
+
+/* Slide controls */
+body.dark-mode .slide-controls button {
+  background: #2a6fb0;
+  color: #f7fbff;
+}
+
+body.dark-mode #slide-counter {
+  color: #dfe9fb;
+}
+
+/* Ensure nav pills keep contrast in dark mode */
+body.dark-mode nav a {
+  background: #0b3b66;
+  color: #fff;
+}
+
+/* Ensure segmented language control contrast */
+body.dark-mode .lang-segment {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.06);
+}
+
+body.dark-mode .lang-segment .lang-option {
+  color: #e8f1ff;
+}
+
+/* Toggle styles */
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  z-index: 1000;
+  background: transparent;
+  padding: 0.15em;
+  border-radius: 6px;
+}
+
+.toggle-container input {
+  display: none;
+}
+
+.lang-toggle {
+  background: #ffffff;
+  color: #004080;
+  border: 0;
+  padding: 0.35em 0.6em;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.lang-toggle:hover {
+  background: #f0f8ff;
+}
+
+.lang-toggle:focus {
+  outline: 2px solid rgba(0,64,128,0.25);
+}
+
+/* Ensure toggle contents remain visible in dark mode */
+body.dark-mode .lang-toggle {
+  background: #2a2a2a;
+  color: #f0f0f0;
+}
+
+/* Segmented language toggle (EN / SW) */
+.lang-segment {
+  display: inline-flex;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.lang-segment .lang-option {
+  padding: 0.35em 0.7em;
+  border: none;
+  background: transparent;
+  color: #004080;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.lang-segment .lang-option.active {
+  background: #004080;
+  color: white;
+}
+
+body.dark-mode .lang-segment {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.08);
+}
+
+body.dark-mode .lang-segment .lang-option {
+  color: #f0f0f0;
+}
+
+body.dark-mode .lang-segment .lang-option.active {
+  background: #2a6fb0;
+}
+
+/* sliding indicator for segmented toggle */
+.lang-segment {
+  position: relative;
+  padding: 3px;
+}
+
+.lang-segment::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: calc(50% - 6px);
+  height: calc(100% - 6px - 6px);
+  background: #004080;
+  border-radius: 999px;
+  transition: transform 260ms cubic-bezier(.22,.9,.35,1), background 200ms;
+  transform: translateX(0%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.lang-segment .lang-option {
+  position: relative;
+  z-index: 1;
+}
+
+.lang-segment[data-lang="sw"]::before {
+  transform: translateX(100%);
+}
+
+/* subtle content fade/slide when language changes */
+[data-i18n] {
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.toggle-switch {
+  width: 50px;
+  height: 25px;
+  background: #ccc;
+  border-radius: 6px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: inline-block;
+}
+
+.toggle-switch::after {
+  content: "";
+  width: 21px;
+  height: 21px;
+  background: #fff;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 4px;
+  transition: transform 0.3s;
+}
+
+.toggle-container input:checked + .toggle-switch {
+  background: #4caf50;
+}
+
+.toggle-container input:checked + .toggle-switch::after {
+  transform: translateX(25px);
+}
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  padding: 3em;
+  background: linear-gradient(135deg, #004080, #0066cc);
+  color: white;
+  justify-content: center;
+}
+
+.contact-info {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.contact-info h2 {
+  margin-bottom: 0.5em;
+}
+
+.contact-info p {
+  margin: 0.5em 0;
+  font-size: 1.1em;
+}
+
+.social-icons {
+  margin-top: 1em;
+}
+
+.social-icons a {
+  margin-right: 0.5em;
+  font-size: 1.5em;
+  color: white;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ffcc00;
+}
+
+.contact-form {
+  flex: 1 1 300px;
+  background: #ffffff;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: #333;
+}
+
+.contact-form h3 {
+  margin-bottom: 1em;
+  color: #004080;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.contact-form button {
+  background: #004080;
+  color: white;
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #0066cc;
+}
+
+/* Dark mode overrides */
+body.dark-mode .contact {
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+  color: #f0f0f0;
+}
+
+body.dark-mode .contact-form {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+  background: #2a2a2a;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+body.dark-mode .contact-form button {
+  background: #4caf50;
+}
+
+body.dark-mode .contact-form button:hover {
+  background: #66bb6a;
+}
+
+/* Highlighted list item used for important events (e.g. Form Six graduation) */
+.events li.highlight,
+.highlights ul li.highlight {
+  background: #ffcc00;
+  color: #004080;
+  font-weight: bold;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+body.dark-mode .events li.highlight,
+body.dark-mode .highlights ul li.highlight {
+  background: #444400;
+  color: #ffcc00;
+}
+
+/* ========== STAFF PAGE STYLES ========== */
+
+.staff-login,
+.staff-dashboard {
+  padding: 2em;
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  color: #333;
+}
+
+.staff-login h2,
+.staff-dashboard h2,
+.staff-dashboard h3 {
+  color: #004080;
+  margin-top: 0;
+}
+
+.staff-login p {
+  color: #666;
+  margin-bottom: 2em;
+}
+
+.staff-form {
+  background: #f9f9f9;
+  padding: 1.5em;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 2em;
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  color: #004080;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.8em 1.5em;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1em;
+}
+
+.btn-primary {
+  background: #004080;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0066cc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background: #666;
+  color: white;
+  float: right;
+}
+
+.btn-secondary:hover {
+  background: #444;
+}
+
+.staff-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+  border-bottom: 2px solid #004080;
+  padding-bottom: 1em;
+}
+
+.staff-form-section {
+  margin-bottom: 3em;
+}
+
+.staff-form-section h3 {
+  border-top: 2px solid #004080;
+  padding-top: 1em;
+  margin-top: 2em;
+}
+
+.error-message {
+  padding: 1em;
+  background: #ffcccc;
+  color: #cc0000;
+  border-radius: 4px;
+  margin-bottom: 1em;
+  border-left: 4px solid #cc0000;
+}
+
+.success-message {
+  padding: 1em;
+  background: #ccffcc;
+  color: #00cc00;
+  border-radius: 4px;
+  margin-bottom: 1em;
+  border-left: 4px solid #00cc00;
+}
+
+.issues-list {
+  display: grid;
+  gap: 1em;
+}
+
+.issue-card {
+  background: #f0f0f0;
+  padding: 1.5em;
+  border-radius: 8px;
+  border-left: 4px solid #004080;
+  transition: all 0.3s ease;
+}
+
+.issue-card:hover {
+  background: #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.issue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+.issue-title {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #004080;
+}
+
+.issue-priority {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.issue-priority.low {
+  background: #ccffcc;
+  color: #00cc00;
+}
+
+.issue-priority.medium {
+  background: #ffffcc;
+  color: #ffaa00;
+}
+
+.issue-priority.high {
+  background: #ffcccc;
+  color: #cc0000;
+}
+
+.issue-priority.urgent {
+  background: #ff6666;
+  color: white;
+}
+
+.issue-meta {
+  display: flex;
+  gap: 2em;
+  margin-bottom: 1em;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.issue-description {
+  color: #333;
+  line-height: 1.6;
+}
+
+.no-issues {
+  color: #999;
+  text-align: center;
+  padding: 2em;
+}
+
+/* Dark mode for staff page */
+body.dark-mode .staff-login,
+body.dark-mode .staff-dashboard {
+  background: rgba(30, 30, 30, 0.95);
+  color: #f0f0f0;
+}
+
+body.dark-mode .staff-form {
+  background: #222;
+  border-color: #444;
+}
+
+body.dark-mode .form-group label {
+  color: #ffcc00;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group textarea,
+body.dark-mode .form-group select {
+  background: #333;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+body.dark-mode .issue-card {
+  background: #333;
+  color: #f0f0f0;
+}
+
+body.dark-mode .issue-card:hover {
+  background: #444;
+}
+
+body.dark-mode .issue-meta {
+  color: #aaa;
+}
+
+body.dark-mode .issue-description {
+  color: #f0f0f0;
+}
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maki High School</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img id="school-logo" src="AZyaRC2TWeVFzHkV26b5Gw-AZyaRC2T_fOR08D3WEnKjw.jpg" alt="Maki High School logo">
+    <h1 class="school-title">Maki High School</h1>
+    <nav>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+      <li><a href="about.html"><i class="fas fa-school"></i> <span data-i18n="nav.about">About</span></a></li>
+      <li><a href="history.html"><i class="fas fa-book-open"></i> <span data-i18n="nav.history">History</span></a></li>
+      <li><a href="events.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="nav.events">Events</span></a></li>
+      <li><a href="gallery.html"><i class="fas fa-images"></i> <span data-i18n="nav.gallery">Gallery</span></a></li>
+      <li><a href="staff.html"><i class="fas fa-chalkboard-user"></i> <span data-i18n="nav.staff">Staff</span></a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+    </ul>
+  </nav>
+
+  <div class="toggle-container">
+    <input type="checkbox" id="dark-mode-toggle">
+    <label for="dark-mode-toggle" class="toggle-switch"></label>
+    <div class="lang-segment" role="tablist" aria-label="Language toggle">
+      <button class="lang-option" data-lang="en" role="tab">EN</button>
+      <button class="lang-option" data-lang="sw" role="tab">SW</button>
+    </div>
+  </div>
+
+</header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <h2 data-i18n="hero.title"><strong>Welcome to Maki High School</strong></h2>
+      <p data-i18n="hero.subtitle">Empowering students with knowledge, discipline, and creativity since 2007.</p>
+    </section>
+
+    <!-- Highlights -->
+    <section class="highlights">
+      <h3 data-i18n="legacy.title">Our Legacy</h3>
+      <p data-i18n="legacy.text">Maki High School has proudly served the Kilimanjaro region for over four decades. 
+        With a tradition of academic excellence and community service, our alumni have gone on 
+        to become leaders in education, science, business, and public service.</p>
+
+      <h3 data-i18n="events.title">Upcoming Events</h3>
+      <ul>
+       
+        <li data-i18n="events.item3" class="highlight"><strong>April 10, 2026:</strong> Form Six Graduation Ceremony</li>
+        <li data-i18n="events.item4"><strong>May 4, 2026:</strong> Form Six National Exam.</li>
+        <li data-i18n="events.item5"><strong>July 8, 2026:</strong> Arrival of New Form Five.</li>
+      </ul>
+
+      <h3 data-i18n="gallery.title">Gallery</h3>
+      <p data-i18n="gallery.text">From classrooms to sports fields, our gallery captures the vibrant spirit of Maki High School. 
+        Explore photos of student achievements, memorable events, and everyday life at our campus.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p data-i18n="footer.copyright">&copy; 2025 Maki High School</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
+

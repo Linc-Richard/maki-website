@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Maki High School</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img id="school-logo" src="AZyaRC2TWeVFzHkV26b5Gw-AZyaRC2T_fOR08D3WEnKjw.jpg" alt="Maki High School logo">
+    <h1 class="school-title" data-i18n="school.title">Maki High School</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="about.html"><i class="fas fa-school"></i> <span data-i18n="nav.about">About</span></a></li>
+        <li><a href="history.html"><i class="fas fa-book-open"></i> <span data-i18n="nav.history">History</span></a></li>
+        <li><a href="events.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="nav.events">Events</span></a></li>
+        <li><a href="gallery.html"><i class="fas fa-images"></i> <span data-i18n="nav.gallery">Gallery</span></a></li>
+        <li><a href="staff.html"><i class="fas fa-chalkboard-user"></i> <span data-i18n="nav.staff">Staff</span></a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="toggle-container">
+      <input type="checkbox" id="dark-mode-toggle">
+      <label for="dark-mode-toggle" class="toggle-switch"></label>
+      <div class="lang-segment" role="tablist" aria-label="Language toggle">
+        <button class="lang-option" data-lang="en" role="tab">EN</button>
+        <button class="lang-option" data-lang="sw" role="tab">SW</button>
+      </div>
+    </div>
+  </header>
+
+<section class="contact page-container">
+  <div class="contact-info">
+    <h2 data-i18n="contact.title">Reach Us</h2>
+    <p data-i18n="contact.address">📍 Mashati Kasurua, Rombo District, Kilimanjaro, Tanzania</p>
+    <p data-i18n="contact.phone">📞 +255 712 345 678</p>
+    <p data-i18n="contact.email">✉️ info@makihighschool.edu</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <form class="contact-form">
+    <h3 data-i18n="contact.form_title">Send Us a Message</h3>
+    <input type="text" data-i18n-placeholder="contact.placeholder.name" placeholder="Your Name" required>
+    <input type="email" data-i18n-placeholder="contact.placeholder.email" placeholder="Your Email" required>
+    <textarea rows="5" data-i18n-placeholder="contact.placeholder.message" placeholder="Your Message" required></textarea>
+    <button type="submit" data-i18n="contact.send">Send Message</button>
+  </form>
+</section>
+
+    <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Maki High School</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

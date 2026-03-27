@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gallery - Maki High School</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <img id="school-logo" src="AZyaRC2TWeVFzHkV26b5Gw-AZyaRC2T_fOR08D3WEnKjw.jpg" alt="Maki High School logo">
+    <h1 class="school-title" data-i18n="school.title">Maki High School</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="about.html"><i class="fas fa-school"></i> <span data-i18n="nav.about">About</span></a></li>
+        <li><a href="history.html"><i class="fas fa-book-open"></i> <span data-i18n="nav.history">History</span></a></li>
+        <li><a href="events.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="nav.events">Events</span></a></li>
+        <li><a href="gallery.html"><i class="fas fa-images"></i> <span data-i18n="nav.gallery">Gallery</span></a></li>
+        <li><a href="staff.html"><i class="fas fa-chalkboard-user"></i> <span data-i18n="nav.staff">Staff</span></a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="toggle-container">
+      <input type="checkbox" id="dark-mode-toggle">
+      <label for="dark-mode-toggle" class="toggle-switch"></label>
+      <div class="lang-segment" role="tablist" aria-label="Language toggle">
+        <button class="lang-option" data-lang="en" role="tab">EN</button>
+        <button class="lang-option" data-lang="sw" role="tab">SW</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="gallery page-container">
+      <h2 data-i18n="gallery.title">School Gallery</h2>
+      <p data-i18n="gallery.text">Explore moments from our classrooms, sports fields, and cultural events.</p>
+
+      <div class="gallery-grid">
+        <figure class="gallery-item">
+          <img src="slab studies.jpg" alt="Slab Studying">
+          <figcaption>Slab Studying</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="Arty-activity.jpg.jpg" alt="Showing art ideas">
+          <figcaption>Art Activity</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="current leaders.jpg" alt="Sports competition">
+          <figcaption>Sports Competition</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="computer club.jpg.jpg" alt="Gain computer skills">
+          <figcaption>Computer Club</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/graduation.jpg" alt="Graduation ceremony">
+          <figcaption>Graduation Ceremony</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/library.jpg" alt="School library">
+          <figcaption>School Library</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="footer.copyright">&copy; 2025 Maki High School</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

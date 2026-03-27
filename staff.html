@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Staff Portal - Maki High School</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <img id="school-logo" src="AZyaRC2TWeVFzHkV26b5Gw-AZyaRC2T_fOR08D3WEnKjw.jpg" alt="Maki High School logo">
+    <h1 class="school-title" data-i18n="school.title">Maki High School</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav.home">Home</span></a></li>
+        <li><a href="about.html"><i class="fas fa-school"></i> <span data-i18n="nav.about">About</span></a></li>
+        <li><a href="history.html"><i class="fas fa-book-open"></i> <span data-i18n="nav.history">History</span></a></li>
+        <li><a href="events.html"><i class="fas fa-calendar-alt"></i> <span data-i18n="nav.events">Events</span></a></li>
+        <li><a href="gallery.html"><i class="fas fa-images"></i> <span data-i18n="nav.gallery">Gallery</span></a></li>
+        <li><a href="staff.html"><i class="fas fa-chalkboard-user"></i> <span data-i18n="nav.staff">Staff</span></a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> <span data-i18n="nav.contact">Contact</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="toggle-container">
+      <input type="checkbox" id="dark-mode-toggle">
+      <label for="dark-mode-toggle" class="toggle-switch"></label>
+      <div class="lang-segment" role="tablist" aria-label="Language toggle">
+        <button class="lang-option" data-lang="en" role="tab">EN</button>
+        <button class="lang-option" data-lang="sw" role="tab">SW</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Login Section -->
+    <section id="staff-login" class="staff-login page-container">
+      <h2 data-i18n="staff.login_title">Staff Portal Login</h2>
+      <p data-i18n="staff.login_description">Teachers and staff members only. Please enter your password to access the issue reporting system.</p>
+      
+      <form id="login-form" class="staff-form">
+        <div class="form-group">
+          <label for="staff-password" data-i18n="staff.password_label">Password:</label>
+          <input type="password" id="staff-password" name="staff-password" required>
+        </div>
+        <button type="submit" class="btn-primary" data-i18n="staff.login_button">Login</button>
+      </form>
+
+      <div id="login-error" class="error-message" style="display: none;"></div>
+    </section>
+
+    <!-- Staff Dashboard Section (Hidden until login) -->
+    <section id="staff-dashboard" class="staff-dashboard page-container" style="display: none;">
+      <div class="staff-header">
+        <h2 data-i18n="staff.dashboard_title">Staff Dashboard</h2>
+        <button id="logout-btn" class="btn-secondary" data-i18n="staff.logout_button">Logout</button>
+      </div>
+
+      <!-- Report Issue Form -->
+      <div class="staff-form-section">
+        <h3 data-i18n="staff.report_title">Report a School Issue</h3>
+        <form id="issue-form" class="staff-form">
+          <div class="form-group">
+            <label for="issue-name" data-i18n="staff.reporter_name">Your Name:</label>
+            <input type="text" id="issue-name" name="reporter-name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="issue-category" data-i18n="staff.issue_category">Issue Category:</label>
+            <select id="issue-category" name="issue-category" required>
+              <option value="">-- Select Category --</option>
+              <option value="infrastructure" data-i18n="staff.category_infrastructure">Infrastructure/Facilities</option>
+              <option value="academic" data-i18n="staff.category_academic">Academic Concerns</option>
+              <option value="discipline" data-i18n="staff.category_discipline">Discipline/Behavior</option>
+              <option value="resources" data-i18n="staff.category_resources">Learning Resources</option>
+              <option value="safety" data-i18n="staff.category_safety">Safety/Health</option>
+              <option value="other" data-i18n="staff.category_other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="issue-priority" data-i18n="staff.issue_priority">Priority Level:</label>
+            <select id="issue-priority" name="issue-priority" required>
+              <option value="low" data-i18n="staff.priority_low">Low</option>
+              <option value="medium" data-i18n="staff.priority_medium">Medium</option>
+              <option value="high" data-i18n="staff.priority_high">High</option>
+              <option value="urgent" data-i18n="staff.priority_urgent">Urgent</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="issue-description" data-i18n="staff.issue_description">Issue Description:</label>
+            <textarea id="issue-description" name="issue-description" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" data-i18n="staff.submit_issue">Submit Issue</button>
+        </form>
+
+        <div id="issue-success" class="success-message" style="display: none;"></div>
+      </div>
+
+      <!-- Issues List -->
+      <div class="staff-issues-section">
+        <h3 data-i18n="staff.issues_list_title">Reported Issues</h3>
+        <div id="issues-list" class="issues-list">
+          <p class="no-issues" data-i18n="staff.no_issues">No issues reported yet.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p data-i18n="footer.copyright">&copy; 2025 Maki High School</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
