@@ -81,34 +81,95 @@ if (document.querySelector(".events ul")) {
 
 // ========== GALLERY PAGE ==========
 
-// Click to enlarge images
-if (document.querySelector(".gallery-grid")) {
-  document.querySelectorAll(".gallery-grid img").forEach(img => {
-    img.addEventListener("click", () => {
-      const overlay = document.createElement("div");
-      overlay.style.position = "fixed";
-      overlay.style.top = 0;
-      overlay.style.left = 0;
-      overlay.style.width = "100%";
-      overlay.style.height = "100%";
-      overlay.style.background = "rgba(0,0,0,0.8)";
-      overlay.style.display = "flex";
-      overlay.style.alignItems = "center";
-      overlay.style.justifyContent = "center";
-      overlay.style.zIndex = 1000;
+const galleryGrid = document.getElementById('gallery-grid');
+const galleryCount = document.getElementById('gallery-count');
+if (galleryGrid && galleryCount) {
+  const galleryItems = [
+    { src: 'slab studies.jpg', alt: 'Students studying in a classroom', caption: 'Slab Studying' },
+    { src: 'Arty-activity.jpg.jpg', alt: 'Students showing art ideas', caption: 'Art Activity' },
+    { src: 'current leaders.jpg', alt: 'Students competing in a sports event', caption: 'Sports Competition' },
+    { src: 'computer club.jpg.jpg', alt: 'Students using computers in club', caption: 'Computer Club' },
+    { src: 'images/graduation.jpg', alt: 'Graduation ceremony on stage', caption: 'Graduation Ceremony' },
+    { src: 'images/library.jpg', alt: 'School library with students reading', caption: 'School Library' },
+    { src: 'creating green maki.jpg', alt: 'Student planting a tree for Green Maki project', caption: 'Creating Green Maki' }
+  ];
 
-      const bigImg = document.createElement("img");
-      bigImg.src = img.src;
-      bigImg.style.maxWidth = "90%";
-      bigImg.style.maxHeight = "90%";
-      bigImg.style.border = "5px solid white";
-      bigImg.style.borderRadius = "8px";
+  galleryCount.textContent = `${galleryItems.length} photos in this gallery`;
+  galleryGrid.innerHTML = galleryItems.map((item, index) => `
+    <figure class="gallery-item">
+      <button type="button" class="gallery-thumb" data-index="${index}" aria-label="View ${item.caption}">
+        <img src="${item.src}" alt="${item.alt}">
+      </button>
+      <figcaption>${item.caption}</figcaption>
+    </figure>
+  `).join('');
 
-      overlay.appendChild(bigImg);
-      document.body.appendChild(overlay);
+  let currentIndex = 0;
+  let overlay = null;
 
-      overlay.addEventListener("click", () => overlay.remove());
+  const closeLightbox = () => {
+    if (overlay) {
+      overlay.remove();
+      overlay = null;
+      document.body.classList.remove('no-scroll');
+      document.removeEventListener('keydown', lightboxKeyHandler);
+    }
+  };
+
+  let lightboxKeyHandler = event => {
+    if (!overlay) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') showLightbox((currentIndex - 1 + galleryItems.length) % galleryItems.length);
+    if (event.key === 'ArrowRight') showLightbox((currentIndex + 1) % galleryItems.length);
+  };
+
+  const showLightbox = index => {
+    currentIndex = index;
+    const item = galleryItems[currentIndex];
+
+    if (overlay) {
+      document.removeEventListener('keydown', lightboxKeyHandler);
+      overlay.remove();
+    }
+
+    overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.innerHTML = `
+      <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="${item.caption}">
+        <button class="lightbox-close" type="button" aria-label="Close gallery view">×</button>
+        <button class="lightbox-arrow lightbox-arrow-left" type="button" aria-label="Previous image">‹</button>
+        <img src="${item.src}" alt="${item.alt}" class="lightbox-image">
+        <div class="lightbox-caption">${item.caption}</div>
+        <button class="lightbox-arrow lightbox-arrow-right" type="button" aria-label="Next image">›</button>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+    document.body.classList.add('no-scroll');
+
+    overlay.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    overlay.querySelector('.lightbox-arrow-left').addEventListener('click', () => showLightbox((currentIndex - 1 + galleryItems.length) % galleryItems.length));
+    overlay.querySelector('.lightbox-arrow-right').addEventListener('click', () => showLightbox((currentIndex + 1) % galleryItems.length));
+    overlay.addEventListener('click', event => {
+      if (event.target === overlay) closeLightbox();
     });
+
+    document.addEventListener('keydown', lightboxKeyHandler);
+  };
+
+  galleryGrid.querySelectorAll('.gallery-thumb img').forEach(img => {
+    img.addEventListener('error', () => {
+      const wrapper = img.closest('.gallery-thumb');
+      if (wrapper) {
+        wrapper.classList.add('gallery-fallback');
+        img.style.display = 'none';
+        wrapper.innerHTML = `<div class="gallery-placeholder">Image not available: ${img.alt}</div>`;
+      }
+    });
+  });
+
+  galleryGrid.querySelectorAll('.gallery-thumb').forEach(button => {
+    button.addEventListener('click', () => showLightbox(Number(button.dataset.index)));
   });
 }
 
