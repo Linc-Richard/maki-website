@@ -81,96 +81,118 @@ if (document.querySelector(".events ul")) {
 
 // ========== GALLERY PAGE ==========
 
-const galleryGrid = document.getElementById('gallery-grid');
-const galleryCount = document.getElementById('gallery-count');
-if (galleryGrid && galleryCount) {
-  const galleryItems = [
-    { src: 'slab studies.jpg', alt: 'Students studying in a classroom', caption: 'Slab Studying' },
-    { src: 'Arty-activity.jpg.jpg', alt: 'Students showing art ideas', caption: 'Art Activity' },
-    { src: 'current leaders.jpg', alt: 'Students competing in a sports event', caption: 'Sports Competition' },
-    { src: 'computer club.jpg.jpg', alt: 'Students using computers in club', caption: 'Computer Club' },
-    { src: 'images/graduation.jpg', alt: 'Graduation ceremony on stage', caption: 'Graduation Ceremony' },
-    { src: 'images/library.jpg', alt: 'School library with students reading', caption: 'School Library' },
-    { src: 'creating green maki.jpg', alt: 'Student planting a tree for Green Maki project', caption: 'Creating Green Maki' }
+const slideshowTrack = document.getElementById('slideshow-track');
+const slideshowIndicators = document.getElementById('slideshow-indicators');
+
+if (slideshowTrack && slideshowIndicators) {
+  // Gallery data - all images in slideshow
+  const galleryData = [
+    // Drone Views
+    { src: 'School Top view1.jpg.jpg', alt: 'Aerial view of Maki High School campus', caption: 'School Top View - Main Building' },
+    { src: 'School Top view2.jpg.jpg', alt: 'Aerial view of Maki High School campus', caption: 'School Top View - Sports Field' },
+    { src: 'school compound.jpg', alt: 'School compound from above', caption: 'School Compound Overview' },
+    // Events
+    { src: 'Arty-activity.jpg.jpg', alt: 'Students showing art ideas', caption: 'Art Activity Day' },
+    { src: 'current leaders.jpg', alt: 'School leaders and students', caption: 'School Leaders' },
+    { src: 'computer club.jpg.jpg', alt: 'Students using computers', caption: 'Computer Club' },
+    { src: 'Creating Green maki.jpg.jpg', alt: 'Student planting a tree for Green Maki project', caption: 'Creating Green Maki' },
+    { src: 'Scout Activities.jpg.jpg', alt: 'Students participating in scout activities', caption: 'Scout Activities' }
   ];
 
-  galleryCount.textContent = `${galleryItems.length} photos in this gallery`;
-  galleryGrid.innerHTML = galleryItems.map((item, index) => `
-    <figure class="gallery-item">
-      <button type="button" class="gallery-thumb" data-index="${index}" aria-label="View ${item.caption}">
+  let currentSlide = 0;
+  let slideshowInterval = null;
+
+  // Initialize slideshow
+  function initSlideshow() {
+    // Create slides
+    slideshowTrack.innerHTML = galleryData.map((item, index) => `
+      <div class="slideshow-slide" data-index="${index}">
         <img src="${item.src}" alt="${item.alt}">
-      </button>
-      <figcaption>${item.caption}</figcaption>
-    </figure>
-  `).join('');
-
-  let currentIndex = 0;
-  let overlay = null;
-
-  const closeLightbox = () => {
-    if (overlay) {
-      overlay.remove();
-      overlay = null;
-      document.body.classList.remove('no-scroll');
-      document.removeEventListener('keydown', lightboxKeyHandler);
-    }
-  };
-
-  let lightboxKeyHandler = event => {
-    if (!overlay) return;
-    if (event.key === 'Escape') closeLightbox();
-    if (event.key === 'ArrowLeft') showLightbox((currentIndex - 1 + galleryItems.length) % galleryItems.length);
-    if (event.key === 'ArrowRight') showLightbox((currentIndex + 1) % galleryItems.length);
-  };
-
-  const showLightbox = index => {
-    currentIndex = index;
-    const item = galleryItems[currentIndex];
-
-    if (overlay) {
-      document.removeEventListener('keydown', lightboxKeyHandler);
-      overlay.remove();
-    }
-
-    overlay = document.createElement('div');
-    overlay.className = 'lightbox-overlay';
-    overlay.innerHTML = `
-      <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="${item.caption}">
-        <button class="lightbox-close" type="button" aria-label="Close gallery view">×</button>
-        <button class="lightbox-arrow lightbox-arrow-left" type="button" aria-label="Previous image">‹</button>
-        <img src="${item.src}" alt="${item.alt}" class="lightbox-image">
-        <div class="lightbox-caption">${item.caption}</div>
-        <button class="lightbox-arrow lightbox-arrow-right" type="button" aria-label="Next image">›</button>
+        <div class="slideshow-caption">${item.caption}</div>
       </div>
-    `;
+    `).join('');
 
-    document.body.appendChild(overlay);
-    document.body.classList.add('no-scroll');
+    // Create indicators
+    slideshowIndicators.innerHTML = galleryData.map((_, index) => `
+      <button class="indicator ${index === 0 ? 'active' : ''}" data-index="${index}" aria-label="Go to slide ${index + 1}"></button>
+    `).join('');
 
-    overlay.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-    overlay.querySelector('.lightbox-arrow-left').addEventListener('click', () => showLightbox((currentIndex - 1 + galleryItems.length) % galleryItems.length));
-    overlay.querySelector('.lightbox-arrow-right').addEventListener('click', () => showLightbox((currentIndex + 1) % galleryItems.length));
-    overlay.addEventListener('click', event => {
-      if (event.target === overlay) closeLightbox();
+    // Show first slide
+    showSlide(0);
+
+    // Auto-advance every 3 seconds
+    slideshowInterval = setInterval(() => nextSlide(), 3000);
+  }
+
+  function showSlide(index) {
+    currentSlide = index;
+    const slides = document.querySelectorAll('.slideshow-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
     });
+    
+    indicators.forEach((ind, i) => {
+      ind.classList.toggle('active', i === index);
+    });
+  }
 
-    document.addEventListener('keydown', lightboxKeyHandler);
-  };
+  function nextSlide() {
+    showSlide((currentSlide + 1) % galleryData.length);
+  }
 
-  galleryGrid.querySelectorAll('.gallery-thumb img').forEach(img => {
-    img.addEventListener('error', () => {
-      const wrapper = img.closest('.gallery-thumb');
-      if (wrapper) {
-        wrapper.classList.add('gallery-fallback');
-        img.style.display = 'none';
-        wrapper.innerHTML = `<div class="gallery-placeholder">Image not available: ${img.alt}</div>`;
-      }
+  function prevSlide() {
+    showSlide((currentSlide - 1 + galleryData.length) % galleryData.length);
+  }
+
+  // Slideshow controls
+  document.querySelector('.slideshow-next')?.addEventListener('click', () => {
+    nextSlide();
+    resetInterval();
+  });
+
+  document.querySelector('.slideshow-prev')?.addEventListener('click', () => {
+    prevSlide();
+    resetInterval();
+  });
+
+  document.querySelectorAll('.indicator').forEach(ind => {
+    ind.addEventListener('click', () => {
+      showSlide(parseInt(ind.dataset.index));
+      resetInterval();
     });
   });
 
-  galleryGrid.querySelectorAll('.gallery-thumb').forEach(button => {
-    button.addEventListener('click', () => showLightbox(Number(button.dataset.index)));
+  function resetInterval() {
+    if (slideshowInterval) clearInterval(slideshowInterval);
+    slideshowInterval = setInterval(() => nextSlide(), 3000);
+  }
+
+  // Touch/swipe support for slideshow
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  document.querySelector('.slideshow-container')?.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
   });
+
+  document.querySelector('.slideshow-container')?.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextSlide();
+      else prevSlide();
+      resetInterval();
+    }
+  }
+
+  // Initialize
+  initSlideshow();
 }
 
 // ========== CONTACT PAGE ==========
@@ -225,9 +247,13 @@ const translations = {
     'events.title': 'Upcoming Events',
     'events.item1': '<strong>Jan 15, 2026:</strong> Annual Science Fair showcasing student innovation.',
     'events.item2': '<strong>Feb 10, 2026:</strong> Inter‑school Sports Competition.',
-    'events.item3': '<strong>April 10, 2026:</strong> Form Six Graduation Ceremony.',
+    'events.item3': '<strong>April 17, 2026:</strong> Form Six Graduation Ceremony.',
     'events.item4': '<strong>May 4, 2026:</strong> Form Six National Exam.',
     'events.item5': '<strong>July 8, 2026:</strong> Arrival of New Form Five.',
+    'events.timetable_title': 'Form Six NECTA Examination Timetable – 2026',
+    'events.download_timetable': 'Download Timetable (PDF)',
+    'events.resources_title': 'Resources & Downloads',
+    'events.viewer_unsupported': 'Your browser does not support PDF viewing. Please use the download button below.',
     'gallery.title': 'Gallery',
     'gallery.text': 'From classrooms to sports fields, our gallery captures the vibrant spirit of Maki High School. Explore photos of student achievements, memorable events, and everyday life at our campus.',
     'footer.copyright': '&copy; 2025 Maki High School',
@@ -249,9 +275,13 @@ const translations = {
     'events.title': 'Matukio Jijayo',
     'events.item1': '<strong>Jan 15, 2026:</strong> Maonyesho ya Sayansi ya Mwaka yanayoonyesha ubunifu wa wanafunzi.',
     'events.item2': '<strong>Feb 10, 2026:</strong> Mashindano ya michezo baina ya shule.',
-    'events.item3': '<strong>April 10, 2026:</strong> Mahafali ya Kidato cha Sita.',
+    'events.item3': '<strong>April 17, 2026:</strong> Mahafali ya Kidato cha Sita.',
     'events.item4': '<strong>May 4, 2026:</strong> Mtihani wa Taifa wa Kidato cha Sita.',
     'events.item5': '<strong>July 8, 2026:</strong> Uwasili wa Kidato cha Tano Kipya.',
+    'events.timetable_title': 'Jedwali la Mitihani ya NECTA ya Kidato cha Sita – 2026',
+    'events.download_timetable': 'Pakua Jedwali (PDF)',
+    'events.resources_title': 'Rasilimali na Makopo',
+    'events.viewer_unsupported': 'Kivinjari chako hakiunga mkono muonekano wa PDF. Tafadhali utumie kituo cha kupakua hapa chini.',
     'gallery.title': 'Galeri',
     'gallery.text': 'Kutoka vyumba vya madarasa hadi viwanja vya michezo, galeri yetu inakamata roho hai ya Shule ya Maki. Tembelea picha za mafanikio ya wanafunzi, matukio ya kukumbukwa, na maisha ya kila siku chuoni kwetu.',
     'footer.copyright': '&copy; 2025 Shule ya Maki',
@@ -298,6 +328,12 @@ Object.assign(translations.en, {
   'staff.login_button': 'Login',
   'staff.dashboard_title': 'Staff Dashboard',
   'staff.logout_button': 'Logout',
+  'staff.list_title': 'Staff Members',
+  'staff.report_title': 'Submit a Report',
+  'staff.report_placeholder': 'Enter your report here...',
+  'staff.submit_report': 'Submit Report',
+  'staff.reports_title': 'Reports',
+  'staff.no_reports': 'No reports submitted yet.',
   'staff.report_title': 'Report a School Issue',
   'staff.reporter_name': 'Your Name:',
   'staff.issue_category': 'Issue Category:',
@@ -356,6 +392,12 @@ Object.assign(translations.sw, {
   'staff.login_button': 'Ingia',
   'staff.dashboard_title': 'Dashboard ya Walimu',
   'staff.logout_button': 'Toka',
+  'staff.list_title': 'Watumishi',
+  'staff.report_title': 'Wasilisha Ripoti',
+  'staff.report_placeholder': 'Andika ripoti yako hapa...',
+  'staff.submit_report': 'Wasilisha Ripoti',
+  'staff.reports_title': 'Ripoti',
+  'staff.no_reports': 'Hakuna ripoti zilizowasilishwa bado.',
   'staff.report_title': 'Ripoti Tatizo la Shule',
   'staff.reporter_name': 'Jina Lako:',
   'staff.issue_category': 'Jamii ya Tatizo:',
@@ -466,13 +508,28 @@ document.querySelectorAll('.lang-option').forEach(btn => {
 // Staff portal password (Change this to your desired password)
 const STAFF_PASSWORD = 'maki2024';
 
+// Staff names list - easy to update
+const staffNames = [
+  'Staff Member 1',
+  'Staff Member 2',
+  'Staff Member 3',
+  'Staff Member 4',
+  'Staff Member 5',
+  'Staff Member 6',
+  'Staff Member 7',
+  'Staff Member 8',
+  'Staff Member 9',
+  'Staff Member 10'
+];
+
 // Initialize staff portal
 function initStaffPortal() {
   const loginForm = document.getElementById('login-form');
   const logoutBtn = document.getElementById('logout-btn');
-  const issueForm = document.getElementById('issue-form');
+  const reportForm = document.getElementById('report-form');
+  const staffList = document.getElementById('staff-list');
 
-  if (!loginForm && !issueForm) return; // Not on staff page
+  if (!loginForm && !reportForm) return; // Not on staff page
 
   // Check if already logged in
   if (sessionStorage.getItem('staffLoggedIn') === 'true') {
@@ -487,12 +544,88 @@ function initStaffPortal() {
     logoutBtn.addEventListener('click', handleStaffLogout);
   }
 
-  if (issueForm) {
-    issueForm.addEventListener('submit', handleIssueSubmit);
+  if (reportForm) {
+    reportForm.addEventListener('submit', handleReportSubmit);
   }
 
-  // Load and display existing issues
-  displayIssues();
+  // Render staff list
+  if (staffList) {
+    renderStaffList();
+  }
+
+  // Display existing reports
+  displayReports();
+}
+
+// Render staff names to the list
+function renderStaffList() {
+  const staffList = document.getElementById('staff-list');
+  if (!staffList) return;
+
+  staffList.innerHTML = staffNames
+    .map(name => `<li>${escapeHtml(name)}</li>`)
+    .join('');
+}
+
+// ========== REPORTS SECTION ==========
+
+// Store reports in memory (can be replaced with localStorage)
+let reports = [];
+
+// Handle report submission
+function handleReportSubmit(e) {
+  e.preventDefault();
+  
+  const reportInput = document.getElementById('report-input');
+  const successDiv = document.getElementById('report-success');
+  
+  if (!reportInput.value.trim()) return;
+  
+  // Create new report
+  const report = {
+    id: Date.now(),
+    content: reportInput.value.trim(),
+    date: new Date().toLocaleDateString(),
+    time: new Date().toLocaleTimeString()
+  };
+  
+  // Add to beginning of array (newest first)
+  reports.unshift(report);
+  
+  // Clear input
+  reportInput.value = '';
+  
+  // Show success message
+  successDiv.textContent = currentLang === 'sw' ? 
+    'Ripoti imewasilishwa kwa mafanikio!' : 
+    'Report submitted successfully!';
+  successDiv.style.display = 'block';
+  
+  // Hide success after 2 seconds
+  setTimeout(() => {
+    successDiv.style.display = 'none';
+  }, 2000);
+  
+  // Display reports
+  displayReports();
+}
+
+// Display reports in the list
+function displayReports() {
+  const reportsList = document.getElementById('reports-list');
+  if (!reportsList) return;
+  
+  if (reports.length === 0) {
+    reportsList.innerHTML = `<p class="no-reports" data-i18n="staff.no_reports">No reports submitted yet.</p>`;
+    return;
+  }
+  
+  reportsList.innerHTML = reports.map(report => `
+    <div class="report-card">
+      <div class="report-content">${escapeHtml(report.content)}</div>
+      <div class="report-meta">${report.date} at ${report.time}</div>
+    </div>
+  `).join('');
 }
 
 function handleStaffLogin(e) {
@@ -603,3 +736,78 @@ function escapeHtml(text) {
 
 // Initialize staff portal when page loads
 document.addEventListener('DOMContentLoaded', initStaffPortal);
+
+// ========== RESOURCES SECTION ==========
+
+// Resources data - easy to add or remove files
+const resources = [
+  { 
+    filename: 'necta_form6_timetable_2026.pdf.pdf', 
+    title: 'Form Six NECTA Examination Timetable 2026' 
+  }
+];
+
+// Initialize resources section
+function initResources() {
+  const resourcesList = document.getElementById('resources-list');
+  const viewer = document.getElementById('resource-viewer');
+  
+  if (!resourcesList) return;
+  
+  // Render resources list
+  renderResources();
+  
+  // Load first resource in viewer
+  if (viewer && resources.length > 0) {
+    loadResourceInViewer(0);
+  }
+}
+
+// Render resources list
+function renderResources() {
+  const resourcesList = document.getElementById('resources-list');
+  if (!resourcesList) return;
+  
+  resourcesList.innerHTML = resources.map((resource, index) => `
+    <div class="resource-item ${index === 0 ? 'active' : ''}" data-index="${index}">
+      <span class="resource-title">${escapeHtml(resource.title)}</span>
+      <a href="${resource.filename}" download="${resource.filename}" class="resource-download">
+        <i class="fas fa-download"></i>
+        <span>Download</span>
+      </a>
+    </div>
+  `).join('');
+  
+  // Add click handlers to load in viewer
+  document.querySelectorAll('.resource-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      // Don't trigger if clicking the download button
+      if (e.target.closest('.resource-download')) return;
+      
+      const index = parseInt(item.dataset.index);
+      loadResourceInViewer(index);
+      
+      // Update active state
+      document.querySelectorAll('.resource-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+}
+
+// Load resource in iframe viewer
+function loadResourceInViewer(index) {
+  const viewer = document.getElementById('resource-viewer');
+  const fallback = document.getElementById('viewer-fallback');
+  
+  if (!viewer || !resources[index]) return;
+  
+  viewer.src = resources[index].filename;
+  
+  // Show fallback if iframe fails
+  viewer.onerror = () => {
+    if (fallback) fallback.style.display = 'block';
+  };
+}
+
+// Initialize resources when page loads
+document.addEventListener('DOMContentLoaded', initResources);

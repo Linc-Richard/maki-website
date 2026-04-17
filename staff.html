@@ -56,54 +56,44 @@
         <button id="logout-btn" class="btn-secondary" data-i18n="staff.logout_button">Logout</button>
       </div>
 
-      <!-- Report Issue Form -->
-      <div class="staff-form-section">
-        <h3 data-i18n="staff.report_title">Report a School Issue</h3>
-        <form id="issue-form" class="staff-form">
-          <div class="form-group">
-            <label for="issue-name" data-i18n="staff.reporter_name">Your Name:</label>
-            <input type="text" id="issue-name" name="reporter-name" required>
-          </div>
-
-          <div class="form-group">
-            <label for="issue-category" data-i18n="staff.issue_category">Issue Category:</label>
-            <select id="issue-category" name="issue-category" required>
-              <option value="">-- Select Category --</option>
-              <option value="infrastructure" data-i18n="staff.category_infrastructure">Infrastructure/Facilities</option>
-              <option value="academic" data-i18n="staff.category_academic">Academic Concerns</option>
-              <option value="discipline" data-i18n="staff.category_discipline">Discipline/Behavior</option>
-              <option value="resources" data-i18n="staff.category_resources">Learning Resources</option>
-              <option value="safety" data-i18n="staff.category_safety">Safety/Health</option>
-              <option value="other" data-i18n="staff.category_other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="issue-priority" data-i18n="staff.issue_priority">Priority Level:</label>
-            <select id="issue-priority" name="issue-priority" required>
-              <option value="low" data-i18n="staff.priority_low">Low</option>
-              <option value="medium" data-i18n="staff.priority_medium">Medium</option>
-              <option value="high" data-i18n="staff.priority_high">High</option>
-              <option value="urgent" data-i18n="staff.priority_urgent">Urgent</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="issue-description" data-i18n="staff.issue_description">Issue Description:</label>
-            <textarea id="issue-description" name="issue-description" rows="5" required></textarea>
-          </div>
-
-          <button type="submit" class="btn-primary" data-i18n="staff.submit_issue">Submit Issue</button>
-        </form>
-
-        <div id="issue-success" class="success-message" style="display: none;"></div>
+      <!-- Staff List Section -->
+      <div class="staff-list-section">
+        <h3 data-i18n="staff.list_title">Staff Members</h3>
+        <ul id="staff-list" class="staff-list">
+          <!-- Staff names will be inserted here by JavaScript -->
+        </ul>
       </div>
 
-      <!-- Issues List -->
-      <div class="staff-issues-section">
-        <h3 data-i18n="staff.issues_list_title">Reported Issues</h3>
-        <div id="issues-list" class="issues-list">
-          <p class="no-issues" data-i18n="staff.no_issues">No issues reported yet.</p>
+      <!-- Simple Report Form -->
+      <div class="report-section">
+        <h3 data-i18n="staff.report_title">Submit a Report</h3>
+        <form id="report-form" class="report-form">
+          <div class="form-group">
+            <textarea id="report-input" name="report-input" rows="4" placeholder="Enter your report here..." data-i18n-placeholder="staff.report_placeholder" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" data-i18n="staff.submit_report">Submit Report</button>
+        </form>
+        <div id="report-success" class="success-message" style="display: none;"></div>
+      </div>
+     <!-- Report form -->
+<div id="reportForm">
+  <h2>Submit a Report</h2>
+  <textarea id="reportInput" rows="4" cols="50" placeholder="Type your report here..."></textarea><br>
+  <button onclick="addReport()">Submit Report</button>
+</div>
+
+<!-- Reports section -->
+<div id="reports">
+  <h2>Reports</h2>
+  <div id="reportList"></div>
+</div>
+
+</script>
+<!-- Reports List -->
+      <div class="reports-section">
+        <h3 data-i18n="staff.reports_title">Reports</h3>
+        <div id="reports-list" class="reports-list">
+          <p class="no-reports" data-i18n="staff.no_reports">No reports submitted yet.</p>
         </div>
       </div>
     </section>

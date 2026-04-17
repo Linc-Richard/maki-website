@@ -37,8 +37,17 @@
       <h2 data-i18n="gallery.title">School Gallery</h2>
       <p data-i18n="gallery.text">Explore moments from our classrooms, sports fields, and cultural events.</p>
 
-      <div id="gallery-count" class="gallery-count" aria-live="polite"></div>
-      <div id="gallery-grid" class="gallery-grid"></div>
+      <!-- Featured Slideshow -->
+      <div class="slideshow-container">
+        <div class="slideshow-wrapper">
+          <div class="slideshow-track" id="slideshow-track">
+            <!-- Slides populated by JavaScript -->
+          </div>
+        </div>
+        <button class="slideshow-arrow slideshow-prev" aria-label="Previous slide">‹</button>
+        <button class="slideshow-arrow slideshow-next" aria-label="Next slide">›</button>
+        <div class="slideshow-indicators" id="slideshow-indicators"></div>
+      </div>
     </section>
   </main>
 

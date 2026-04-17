@@ -37,10 +37,29 @@
       <h2 data-i18n="events.title">Upcoming Events</h2>
       <ul>
        
-        <li data-i18n="events.item3" class="highlight"><strong>April 10, 2026:</strong> Form Six Graduation Ceremony</li>
+        <li data-i18n="events.item3" class="highlight"><strong>April 17, 2026:</strong> Form Six Graduation Ceremony</li>
         <li data-i18n="events.item4"><strong>May 4, 2026:</strong> Form Six National Exam</li>
         <li data-i18n="events.item5"><strong>July 8, 2026:</strong> Arrival of New Form Five</li>
       </ul>
+
+      <!-- Resources & Downloads Section -->
+      <div class="resources-section">
+        <h2 data-i18n="events.resources_title">Resources & Downloads</h2>
+        
+        <!-- PDF Viewer (displays first resource) -->
+        <div class="pdf-viewer">
+          <iframe id="resource-viewer" title="Resource Viewer">
+          </iframe>
+          <div id="viewer-fallback" class="viewer-fallback" style="display: none;">
+            <p data-i18n="events.viewer_unsupported">Your browser does not support PDF viewing.</p>
+          </div>
+        </div>
+        
+        <!-- Resources List -->
+        <div id="resources-list" class="resources-list">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
 
       <h2 data-i18n="events.past_title">Past Highlights</h2>
       <ul>
