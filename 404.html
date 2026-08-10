@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | MAKI Secondary School</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body data-page="404">
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="logo.svg" alt="MAKI Secondary School logo" width="46" height="46">
+        <span class="brand-name">
+          <span data-i18n="brand.name">MAKI Secondary School</span>
+          <small data-i18n="brand.sub">Secondary School</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Primary" data-aria-key="aria.primary">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html"><i class="fas fa-home" aria-hidden="true"></i><span data-i18n="nav.home">Home</span></a></li>
+          <li><a class="nav-link" href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a class="nav-link" href="academics.html" data-i18n="nav.academics">Academics</a></li>
+          <li><a class="nav-link" href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+          <li><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Switch to dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i><i class="fas fa-sun" aria-hidden="true"></i>
+        </button>
+        <div class="lang-segment" role="group" aria-label="Language" data-aria-key="aria.language">
+          <button class="lang-option active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-option" data-lang="sw" aria-pressed="false">SW</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="error-page">
+      <div class="container">
+        <p class="error-code" aria-hidden="true">404</p>
+        <h1 data-i18n="error.title">Page Not Found</h1>
+        <p style="color: var(--muted); max-width: 460px; margin: 0 auto 2rem;" data-i18n="error.text">Sorry, the page you are looking for does not exist or has been moved.</p>
+        <a class="btn btn-primary" href="index.html"><i class="fas fa-home" aria-hidden="true"></i><span data-i18n="error.btn">Back to Home</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; <span class="js-year">2026</span> MAKI Secondary School. <span id="footer-rights" data-i18n="footer.rights">All rights reserved.</span></p>
+        <p><a href="index.html" data-i18n="nav.home">Home</a> &middot; <a href="contact.html" data-i18n="nav.contact">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top" data-aria-key="aria.backToTop"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+  <script src="script.js"></script>
+</body>
+</html>

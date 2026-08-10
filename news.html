@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News &amp; Announcements | MAKI Secondary School</title>
+  <meta name="description" content="Latest news and announcements from MAKI Secondary School.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body data-page="news">
+  <a class="skip-link" href="#main" data-i18n="aria.skip">Skip to main content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="bg-shapes" aria-hidden="true">
+    <span class="shape-1"></span><span class="shape-2"></span><span class="shape-3"></span>
+  </div>
+
+  <div class="announcement-bar">
+    <div class="announcement-inner">
+      <p><i class="fas fa-bullhorn" aria-hidden="true"></i><span data-i18n="announce.text">Form Six Graduation Ceremony — April 2026</span></p>
+      <button class="announcement-close" aria-label="Close announcement" data-aria-key="aria.closeAnnouncement"><i class="fas fa-times" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="logo.svg" alt="MAKI Secondary School logo" width="46" height="46">
+        <span class="brand-name">
+          <span data-i18n="brand.name">MAKI Secondary School</span>
+          <small data-i18n="brand.sub">Secondary School</small>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary" data-aria-key="aria.primary">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="index.html"><i class="fas fa-home" aria-hidden="true"></i><span data-i18n="nav.home">Home</span></a></li>
+          <li class="has-dropdown">
+            <a class="nav-link" href="about.html"><i class="fas fa-school" aria-hidden="true"></i><span data-i18n="nav.about">About</span></a>
+            <button class="nav-link dropdown-toggle" aria-expanded="false" aria-label="Toggle About submenu" data-aria-key="aria.toggleAbout"><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+            <ul class="dropdown">
+              <li><a class="nav-link" href="about.html" data-i18n="nav.about">About Us</a></li>
+              <li><a class="nav-link" href="history.html" data-i18n="nav.history">Our History</a></li>
+              <li><a class="nav-link" href="news.html" data-i18n="nav.news">News</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a class="nav-link" href="academics.html"><i class="fas fa-graduation-cap" aria-hidden="true"></i><span data-i18n="nav.academics">Academics</span></a>
+            <button class="nav-link dropdown-toggle" aria-expanded="false" aria-label="Toggle Academics submenu" data-aria-key="aria.toggleAcademics"><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+            <ul class="dropdown">
+              <li><a class="nav-link" href="academics.html" data-i18n="nav.academics">Academics</a></li>
+              <li><a class="nav-link" href="admissions.html" data-i18n="nav.admissions">Admissions</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link" href="gallery.html"><i class="fas fa-images" aria-hidden="true"></i><span data-i18n="nav.gallery">Gallery</span></a></li>
+          <li><a class="nav-link" href="contact.html"><i class="fas fa-envelope" aria-hidden="true"></i><span data-i18n="nav.contact">Contact</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="theme-toggle" aria-label="Switch to dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i><i class="fas fa-sun" aria-hidden="true"></i>
+        </button>
+        <div class="lang-segment" role="group" aria-label="Language" data-aria-key="aria.language">
+          <button class="lang-option active" data-lang="en" aria-pressed="true">EN</button>
+          <button class="lang-option" data-lang="sw" aria-pressed="false">SW</button>
+        </div>
+        <button class="nav-toggle" aria-expanded="false" aria-label="Open menu" data-aria-key="aria.openMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1 data-i18n="news.title">News &amp; Announcements</h1>
+        <p data-i18n="news.sub">The latest updates from MAKI.</p>
+        <nav class="crumbs" aria-label="Breadcrumb" data-aria-key="aria.breadcrumb">
+          <span><a href="index.html" data-i18n="nav.home">Home</a></span>
+          <span data-i18n="nav.news">News</span>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="reveal" style="text-align: center; padding: 2rem 0;">
+          <i class="fas fa-inbox" aria-hidden="true" style="font-size: 2.5rem; color: var(--muted); margin-bottom: 1rem; display: block;"></i>
+          <p style="color: var(--muted); font-size: 1.05rem;" data-i18n="news.empty">There is no news at the moment. Please check back later.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="stats-band reveal" style="background: linear-gradient(120deg, #d4a800, #ffcc00 60%, #ffe066); color: #002147; text-align: center;">
+          <h2 style="font-size: clamp(1.5rem, 3vw, 2.1rem); color: #002147;" data-i18n="cta.title">Ready to join the MAKI family?</h2>
+          <p style="color: rgba(0, 33, 71, 0.85); max-width: 560px; margin: 0 auto 1.5rem;" data-i18n="cta.text">Visit our campus or get in touch today to learn more about admissions.</p>
+          <div class="hero-cta">
+            <a class="btn" style="background: #002147; color: #fff;" href="contact.html"><i class="fas fa-envelope" aria-hidden="true"></i><span data-i18n="cta.btn1">Contact Us</span></a>
+            <a class="btn" style="border: 2px solid #002147; color: #002147;" href="admissions.html"><i class="fas fa-user-plus" aria-hidden="true"></i><span data-i18n="nav.admissions">Admissions</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="logo.svg" alt="MAKI Secondary School logo">
+            <span class="bname"><span data-i18n="brand.name">MAKI Secondary School</span><small data-i18n="brand.sub">Secondary School</small></span>
+          </div>
+          <div class="footer-about"><p data-i18n="footer.about">MAKI Secondary School is a secondary school in Mashati Kasurua, Rombo District, Kilimanjaro Region, Tanzania, founded in 2007.</p></div>
+          <div class="socials">
+            <a class="social-link" href="#" aria-label="Facebook" data-aria-key="aria.social.facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a class="social-link" href="#" aria-label="Instagram" data-aria-key="aria.social.instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a class="social-link" href="#" aria-label="WhatsApp" data-aria-key="aria.social.whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <nav aria-label="Footer quick links" data-aria-key="aria.footerLinks">
+          <h4 data-i18n="footer.links_title">Quick Links</h4>
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="admissions.html" data-i18n="nav.admissions">Admissions</a></li>
+            <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Footer resources" data-aria-key="aria.footerResources">
+          <h4 data-i18n="footer.resources_title">Resources</h4>
+          <ul>
+            <li><a href="admissions.html" data-i18n="footer.res2">Admissions Guide</a></li>
+            <li><a href="gallery.html" data-i18n="footer.res3">School Gallery</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h4 data-i18n="footer.contact_title">Contact</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span data-i18n="footer.address">Mashati Kasurua, Rombo District, Kilimanjaro, Tanzania</span></li>
+            <li><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:+255712345678" data-i18n="footer.phone">+255 712 345 678</a></li>
+            <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@makihighschool.edu" data-i18n="footer.email">info@makihighschool.edu</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span class="js-year">2026</span> MAKI Secondary School. <span id="footer-rights" data-i18n="footer.rights">All rights reserved.</span></p>
+        <p><a href="#" data-i18n="footer.privacy">Privacy</a> &middot; <a href="#" data-i18n="footer.terms">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top" data-aria-key="aria.backToTop"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+  <script src="script.js"></script>
+</body>
+</html>
